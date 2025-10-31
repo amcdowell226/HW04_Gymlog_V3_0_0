@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="390dp"
         android:layout_height="200dp"
-        android:id="@+id/LogDisplayTextView"
+        android:id="@+id/logDisplayTextView"
         android:text="Hello World!"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
         android:text="@string/exercise"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/LogDisplayTextView" />
+        app:layout_constraintTop_toBottomOf="@id/logDisplayTextView" />
 
     <EditText
         android:id="@+id/exerciseInputEditText"
@@ -97,7 +97,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:text="@string/log"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        android:id="@+id/logButton"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
