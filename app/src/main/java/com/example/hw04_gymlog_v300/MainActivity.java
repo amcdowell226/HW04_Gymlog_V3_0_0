@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
         gymLogViewModel = new ViewModelProvider(this).get(GymLogViewModel.class);
 
-
         RecyclerView recyclerView = binding.logDisplayRecyclerView;
         final GymLogAdapter adapter = new GymLogAdapter(new GymLogAdapter.GymLogDiff());
         recyclerView.setAdapter(adapter);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         repository = GymLogRepository.getRepository(getApplication());
@@ -79,26 +79,14 @@ public class MainActivity extends AppCompatActivity {
 
         updateSharedPreference();
 
-        // REMOVE
-//        binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
-//        updateDisplay();
-
         binding.logButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getInformationFromDisplay();
                 insertGymLogRecord();
-                // REMOVE
-                updateDisplay();
             }
         });
 
-//        binding.exerciseInputEditText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                updateDisplay();
-//            }
-//        });
     }
 
     private void loginUser(Bundle savedInstanceState) {
@@ -210,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         GymLog log = new GymLog(mExercise, mWeight, mReps, loggedInUserId);
-        repository.insertGymLog(log);
+        gymLogViewModel.insert(log);
     }
 
     @Deprecated
